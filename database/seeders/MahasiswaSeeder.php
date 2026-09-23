@@ -6,26 +6,28 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class Mahasiswa extends Seeder
+class MahasiswaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('mahasiswa')->insert([
+        $data = [
             [
-                'nama' => 'Noval',
+                'nama' => 'M Noval',
                 'npm' => '2457052003',
-                'kelas' => 'A',
-                'jurusan' => 'Sistem Informasi',
+                'kelas' => '2',
+                'jurusan' => 'Ilmu Komputer',
             ],
             [
                 'nama' => 'Rafief',
                 'npm' => '2477052003',
-                'kelas' => 'B',
+                'kelas' => '1',
                 'jurusan' => 'Sistem Informasi',
             ],
-        ]);
+        ];
+
+        DB::table('user')->insert($data);
     }
 }

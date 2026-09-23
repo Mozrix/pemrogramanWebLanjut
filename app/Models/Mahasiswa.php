@@ -17,4 +17,10 @@ class Mahasiswa extends Model
         'kelas',
         'jurusan',
     ];
+
+    public function getUser(){
+        return $this->join('kelas', 'kelas.id', '=', 'user.kelas')
+                    ->select('user.*', 'kelas.nama_kelas as nama_kelas')
+                    ->get();
+    }
 }
