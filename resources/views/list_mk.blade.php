@@ -32,7 +32,7 @@
                         <td style="text-align: center;">
                             <span class="badge badge-sks">{{ $mk->sks }} SKS</span>
                         </td>
-                        <td style="text-align: center;" class="flex items-stretch justify-center gap-2">
+                        <td style="text-align: center;" class="flex">
                             <a href="{{ route('matakuliah.edit', $mk->id) }}" class="btn btn-sm btn-warning">Edit</a>
                             <form action="{{ route('matakuliah.destroy', $mk->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
