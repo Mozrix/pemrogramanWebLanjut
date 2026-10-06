@@ -30,7 +30,7 @@ class MataKuliahController extends Controller
             'sks' => $request->sks,
         ]);
 
-        return redirect()->to('/matakuliah');
+        return redirect()->to('/matakuliah')->with('success', 'Mata kuliah berhasil ditambahkan.');
     }
 
     public function edit($id)

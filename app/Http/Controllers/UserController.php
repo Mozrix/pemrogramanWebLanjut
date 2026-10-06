@@ -27,7 +27,7 @@ class UserController extends Controller
             'kelas_id' => $request->input('kelas_id'),
             'jurusan_id' => $request->input('jurusan_id'),
         ]);
-        return redirect()->to('/user');
+        return redirect()->to('/user')->with('success', 'Pengguna berhasil ditambahkan.');
     }
 
     public function create()
