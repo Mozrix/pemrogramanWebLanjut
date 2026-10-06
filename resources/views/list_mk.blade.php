@@ -32,17 +32,20 @@
                         <td style="text-align: center;">
                             <span class="badge badge-sks">{{ $mk->sks }} SKS</span>
                         </td>
-                        <td style="text-align: center;" class="flex items-stretch justify-center gap-2">
-                            <a href="{{ route('matakuliah.edit', $mk->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="{{ route('matakuliah.destroy', $mk->id) }}" method="POST" style="display: inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus mata kuliah ini?')">Hapus</button>
-                            </form>
+                        <td style="text-align: center;">
+                            <div style="display: inline-flex; gap: 0.5rem; justify-content: center; align-items: center;">
+                                <a href="{{ route('matakuliah.edit', $mk->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('matakuliah.destroy', $mk->id) }}" method="POST" style="display: inline-block; margin: 0;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus mata kuliah ini?')">Hapus</button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3" style="text-align: center; color: var(--text-muted); padding: 2.5rem 1rem;">
+                        <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 2.5rem 1rem;">
                             Belum ada data mata kuliah.
                         </td>
                     </tr>

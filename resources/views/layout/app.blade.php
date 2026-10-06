@@ -19,6 +19,8 @@
     @endif
 </head>
 <body class="site-wrapper">
+    @include('layout.alert')
+
     @include('layout.navbar')
 
     <main class="main-content">
@@ -31,6 +33,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Mobile navbar toggle
             const toggleBtn = document.getElementById('navbarToggle');
             const navMenu = document.getElementById('navbarMenu');
             if (toggleBtn && navMenu) {
@@ -65,6 +68,29 @@
                     });
                 }
             });
+
+            // Pop-up Alert handler
+            const popupAlert = document.getElementById('popupAlert');
+            if (popupAlert) {
+                const closeBtn = document.getElementById('popupAlertClose');
+                const dismissAlert = () => {
+                    popupAlert.classList.add('hide');
+                    setTimeout(() => popupAlert.remove(), 350);
+                };
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', dismissAlert);
+                }
+
+                // Auto-dismiss after 4 seconds
+                let timeout = setTimeout(dismissAlert, 4000);
+
+                // Pause auto-dismiss on hover
+                popupAlert.addEventListener('mouseenter', () => clearTimeout(timeout));
+                popupAlert.addEventListener('mouseleave', () => {
+                    timeout = setTimeout(dismissAlert, 2000);
+                });
+            }
         });
     </script>
 </body>
