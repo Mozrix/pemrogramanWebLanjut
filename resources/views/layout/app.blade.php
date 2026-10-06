@@ -38,6 +38,33 @@
                     navMenu.classList.toggle('show');
                 });
             }
+
+            // Dropdown click handler for mobile & desktop
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            dropdownToggles.forEach(function (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const currentDropdown = this.closest('.dropdown');
+                    
+                    // Close other dropdowns
+                    document.querySelectorAll('.dropdown').forEach(function (drop) {
+                        if (drop !== currentDropdown) {
+                            drop.classList.remove('open');
+                        }
+                    });
+
+                    currentDropdown.classList.toggle('open');
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown').forEach(function (drop) {
+                        drop.classList.remove('open');
+                    });
+                }
+            });
         });
     </script>
 </body>
